@@ -68,7 +68,7 @@ internal class OneHitBreakCheat : BaseCheat
         foreach (ResourceClump? clump in location.resourceClumps)
         {
             if (clump != null && clump.getBoundingBox().Contains((int)player.GetToolLocation().X, (int)player.GetToolLocation().Y) && clump.health.Value > 0)
-                clump.health.Value = 0;
+                clump.health.Value = ModEntry.HasItemExtensions ? 1 : 0;
         }
     }
 }
