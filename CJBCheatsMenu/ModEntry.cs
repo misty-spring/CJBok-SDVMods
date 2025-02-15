@@ -32,6 +32,7 @@ internal class ModEntry : Mod
     /// <summary>The known in-game location.</summary>
     private readonly PerScreen<Lazy<GameLocation[]>> Locations = new(ModEntry.GetLocationsForCache);
 
+    internal static bool HasItemExtensions;
 
     /*********
     ** Public methods
@@ -70,6 +71,8 @@ internal class ModEntry : Mod
         helper.Events.Input.ButtonsChanged += this.OnButtonsChanged;
 
         helper.Events.World.LocationListChanged += this.OnLocationListChanged;
+
+        ModEntry.HasItemExtensions = helper.ModRegistry.Get("mistyspring.ItemExtensions") != null;
     }
 
 
